@@ -1,0 +1,45 @@
+\documentclass[oneside, 12pt]{report}%
+\usepackage{amsmath}%
+\usepackage{amsfonts}%
+\usepackage{floatrow}%
+\usepackage{amssymb}%
+\usepackage[utf8]{vietnam}%
+\usepackage{xcolor}%
+\usepackage{color}%
+\usepackage{color}%
+\usepackage{caption}%
+\usepackage{listings}%
+\usepackage{graphicx}
+%----------------------------------------------------------
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\floatsetup[table]{capposition=top}
+\newenvironment{proof}[1][Proof]{\textbf{#1.} }{\ \rule{0.5em}{0.5em}}%
+\lstloadlanguages{Ruby}
+\lstset{%
+basicstyle=\ttfamily\color{blue},
+commentstyle = \ttfamily\color{orange},
+keywordstyle=\ttfamily\color{red},
+stringstyle=\color{blue}}
+\DeclareCaptionFont{white}{\color{white}}
+\DeclareCaptionFormat{listing}{\colorbox{gray}{\parbox{\textwidth}{#1#2#3}}}
+\captionsetup[lstlisting]{format=listing,labelfont=white,textfont=white}

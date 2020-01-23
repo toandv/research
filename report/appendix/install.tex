@@ -1,0 +1,28 @@
+\appendix
+\chapter{Hướng dẫn cài đặt}
+Hướng dẫn cài đặt Ruby on Rails
+\section{Cài đặt trên Windowns}
+Tất cả các thành phần chứa trong một gói phần mềm có sẵn.
+\begin{itemize}
+\item Truy cập trang web http://railsinstaller.org/ để tải bản cài
+\item Cài đặt gói phần mềm tải về
+\item Kiểm tra version của ruby : ruby -v
+\item Kiểm tra version của rails : rails -v
+\item Kiểm tra version của thư viện : gem -v
+\end{itemize}
+\section{Cài đặt trên linux - Ubuntu}
+\begin{itemize}
+\item sudo apt-get update
+\item sudo apt-get install ruby
+\item gem install rails
+\item sudo apt-get install nodejs
+\end{itemize}
+\section{Tạo một rails project}
+\begin{itemize}
+\item rails new app
+\item Chuyển vào thư mục app
+\item Gõ : rails g scaffold Post title:string content:text
+\item Tạo các bảng dữ liệu : rake db:migrate
+\item Khởi động web server : rails server
+\item Truy cập ứng dụng : localhost:3000
+\end{itemize}

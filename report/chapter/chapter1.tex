@@ -1,0 +1,37 @@
+\chapter{Giới thiệu về Ruby on Rails}
+Chương này sẽ giới thiệu một cách tổng quát, sơ lược về framework Ruby on Rails.
+\section{Sơ lược về Rails}
+Ruby on Rails, hay Rails, là một web framework mã nguồn mở được viết bằng ngôn ngữ lập trình Ruby. Rails là một full-stack framework : cung cấp đầy đủ các kĩ thuật, công cụ cần thiết để xay dựng một ứng dụng web hiện đại (web 2.0). Rails được xây dựng bởi một lập viên trẻ người Đan Mạch, với bản phát hành đầu tiên 1.0 vào năm 2005, phiên bản hiện nay của Rails là 4.0, và được duy trì và phát triển bởi Rails Core Team.
+
+Tất cả các ứng dụng viết bằng Rails được triển khai sử dụng kiến trúc Model-View-Controller (M-V-C). Rails cũng hỗ trợ việc sinh code tự đông, lập trình viện chỉ cần sử dụng các lệnh cho để tạo các thành phần của ứng dụng một cách chuẩn nhất, gồm model, view, controller... Để hỗ trợ việc test ứng dụng, với mỗi thành phần được sinh ra bằng các lệnh hỗ trợ, Rails cũng tự động sinh ra các test stubs, lập trình viên chỉ cần cài đặt các test stubs này thì đảm bảo các thành phần của ứng dựng đều được test.
+
+Rails được viết bằng Ruby, một ngôn ngữ lập trình hiện đại, hướng đối tượng hoàn toàn. Ruby có cú pháp súc tích, rõ ràng, gần với ngôn ngữ tự nhiên khiến cho chương trình viết bằng Ruby ngắn ngọn, dễ đọc dễ bảo trì, giúp cho việc phát triển ứng dựng bằng Rails thuận lợi hơn.
+\section{Các triết lý của Ruby on Rails}
+Ruby on Rails bao gồm 2 triết lý giúp các chương trình ngắn gọn, dễ đọc và bảo trì hơn : don't repeat yourself và convention over configuration, giúp công sức bỏ ra của người phát triển được giảm đi đáng kể.
+\subsection{Don't Repeat Yourself}
+Triết lý này gợi ý rằng nên tránh việc viết các đoạn code trùng lặp nhau, Rails hỗ trợ việc này bằng cách mỗi đoạn code viết ra đều được đặt vào đúng 1 vị trí xác định duy nhất, và được tổ chức rất hợp lý và chặt chẽ, giúp việc quản mã nguồn tốt hơn từ đó trách được việc lặp lại code, với các framework khác, khi thay đổi tổ chức của mã nguồn sẽ kéo theo việc thay đổi của rất nhiều thứ khác.
+\subsection{Convention Over Configuration}
+Đây là triết lý làm lên đặc trưng của Rails, Rails đưa ra một số các quy ước mặc định, nếu lập trình viên tuân theo các quy ước này thì sẽ phải viết ít code hơn, chủ yếu là các dòng code để thiết lập hệ thống và cơ sở dữ liệu, ví dụ trong khi các lập trình viên Java phải viết rất nhiều các file cấu hình bằng XML, rất dài dòng và tốt công sức.
+Bên cạnh đó Rails còn giúp việc phát triển dễ dàng hơn khi đã tích hợp sẵn một số thành phần như Ajax hay RESTful web service, các phần này sẽ được trình bày ở các phần sau của tài liệu.
+\section{Rails là một Agile framework}
+Agile là phương pháp phát triển phần mềm linh hoạt, với mục đích có được sản phẩm phần mềm nhanh nhất.
+Tuyên ngôn của agile được phát biểu như sau :
+\begin{itemize}
+\item Các cá nhân và sự tương tác hơn là công cụ và quy trình
+\item Phần mềm chạy được hơn là tài liệu đầy đủ
+\item Cộng tác với khác hàng hơn là hợp đồng ràng buộc
+\item Phản ứng với thay đổi hơn là làm theo một bản kế hoạch
+\end{itemize}
+Thực tế, Rails hướng tới các cá nhân và sự tương tác, không có các bộ công cụ phát triển cồng kềnh, không có các cấu hình phức tạp, không có các quy trình phát triển chi tiết. Rails không phản đối việc sử dụng tài liệu phát triển, nhưng quy trình phát triển ứng dựng bằng Rails không được định hướng bởi tài liệu. Rails làm cho việc tạo tài liệu trở lên dễ dàng bằng việc hỗ trợ tự sinh tài liệu dạng HTML cho toàn bộ code của ứng dụng. 
+
+Rails đặc biệt coi trọng việc test ứng dụng gồm unit test và functional test, các test stubs được sinh ra cùng với các chức năng được tạo ra, khi mỗi thành phần được xây dựng và test theo cách này, ứng dụng sẽ luôn chạy được và có thể dùng để giao tiếp với khách hàng, từ đó có được phản hồi sớm nhất và dễ dàng thay đổi nhanh chóng và phù hợp. Sản phầm cuối cùng được hoàn thành khi các chức năng được triển khai hết. 
+
+Chính vì tính linh hoạt, nhanh chóng trong việc xây dựng ứng dụng, Rails được sử dụng rất nhiều để xây dựng các trang web dạng start-up và các ứng dụng mobile, khi yêu cầu có được sản phẩm sớm nhất và dễ dàng thay đổi, nâng cấp được đặt lên hàng đầu. \newline
+
+
+{\bf Tổng kết}\newline
+Rails là một framework đã được chứng minh tính hiệu quả trong thực tế. Để phát triển được ứng dụng bằng Ruby on Rails, người lập trình cần có một số kĩ năng lập trình Ruby, thực tế Rails chỉ sử dựng chủ yếu một số các cú pháp nổi bật của Ruby và đặt trong một phạm vi giới hạn giúp tối ưu việc lập trình, chương sau của tài liệu sẽ giới thiệu về ngôn ngữ lập trình Ruby và các thành phần được sử dựng nhiều trong Rails.
+
+
+
+

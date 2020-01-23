@@ -1,0 +1,245 @@
+\chapter{Giới thiệu về ngôn ngữ lập trình Ruby}
+Chương này sẽ giới thiệu về các thành phần, đặc điểm nổi bật của ngôn ngữ lập trình Ruby
+
+\section{Sơ lược về Ruby}
+Ruby là một ngôn ngữ lập trình động, hướng đối tượng, đa mục đích được thiết kế bởi một lập trình người Nhật là Yukihiro Matsumoto. Phiên bản đầu tiên của Ruby 1.0 xuất hiện vào năm 1995, phiên bản ổn định hiện nay là 2.0.\newline
+
+Ruby được cho là một ngôn ngữ lập trình có cú pháp ngắn gọn, gần với ngôn ngữ tự nhiên, hướng tới người lập trình với năng suất cao, mang lại sự hài lòng cho lập trình viên thay vì hướng tới hiệu năng của chương trình. \newline
+
+Ruby trở lên thực sự nổi tiếng vào năm 2005 nhờ sự ra đời của framework Ruby on Rails, một framework dùng để phát triển các ứng dụng web nhanh chóng.
+
+\section{Ruby là ngôn ngữ hướng đối tượng hoàn toàn} 
+Ruby là một ngôn ngữ hướng đối tượng hoàn toàn, mọi thứ trong Ruby đều là đối tượng, kiểu số trong Ruby cũng được biểu diễn bởi các đối tượng, đoạn code~\ref{use-objects} mô tả việc sử dụng các đối tượng trong Ruby.
+\begin{lstlisting}[
+language=Ruby,
+label=use-objects,
+inputencoding=utf8,
+caption=Các đối tượng trong Ruby
+]
+# Ruby has dynamic types
+a = 10
+# Print type of a, class Fixnum
+print a.class()
+# Object id of a
+print a.object_id()
+# A number is an object, a.next() = 11
+print a.next()
+# Now a is a string object 
+a = "Ruby is fun"
+a.class()
+# a now has another object id
+print a.object_id()
+\end{lstlisting}
+
+\subsection{Quy ước đặt tên}
+Ruby đưa ra một số quy ước đặt tên cho các thành phần như các biến, các method, các class.\newline
+
+Đặt tên biến trong Ruby các biến được chia ra thành các loại : biến cục bộ, biến thực thể, biến lớp và hằng số. Tất cả các loại biến đều được đặt tên bằng chữ cái thường, các số và dấu gạch dưới để ngăn cách các từ, riêng hằng số được đặt tên bằng chữ cái in hoa. Biến cục bộ bắt đầu bằng chữ cái in thường, biến thực thể bắt đầu bằng 1 kí tự @, biến lớp được bắt đầu bằng 2 kí tự @, đoạn code~\ref{variables} chỉ ra cách đặt tên trong Ruby.\newline
+
+Các method được đặt tên bằng chữ cái thường, các từ được phân cách bằng dấu gạnh dưới. Các class trong ruby phải bắt đầu bằng chữ cái in hoa, các từ tiếp theo thì chữ cái đầu được viết hoa.
+
+\begin{lstlisting}[
+language=Ruby,
+label=variables,
+inputencoding=utf8,
+caption=Cách đặt tên biến trong Ruby
+]
+# Local variable
+a = 10
+# Constant
+CONST = 100
+
+# Class name
+class StudentClass
+# Class variable
+    @@count = 1
+# method name
+  def set_name(name)
+  # Instance variable
+    @name = name
+  end
+end
+\end{lstlisting}
+
+\subsection{Các phương thức}
+Các phương thức trong Ruby có thể tồn tại ở 2 vị trí, bên trong class và bên ngoài class. Method bên trong chia ra làm 2 mức là static method và instance method. Method trong Ruby không cần khai báo kiểu giá trị trả về, hơn thế nữa có thể trả về nhiều giá trị cho một method. Một biến cuối cùng trong thân method sẽ được trả về nếu không có biến nào được trả về trực tiếp bằng từ khóa {\bf return}, và dấu ngoặc đơn bao quanh các tham số của 1 method có thể lược bỏ đi, đoạn code~\ref{method} mô tả cách dùng các method trong Ruby.
+\begin{lstlisting}[
+language=Ruby,
+label=method,
+inputencoding=utf8,
+caption=Cách dùng method trong Ruby
+]
+# Outside class method
+def say_hello name
+    puts name
+end
+# Use method 
+say_hello "Ruby"
+
+# Inside class method
+class Student
+    @@count = 10
+# Static method
+    def self.get_count
+    # Return @@count
+      @@count
+    end
+# Instance method
+def say_hello name
+    puts name
+end
+# Use static method
+puts Student.get_count
+# Use instance method
+s = Student.new # Initiate 
+s = say_hello "Rails"
+\end{lstlisting}
+
+\section{Các kiểu dữ liệu}
+Mọi kiểu dữ liệu trong Ruby đều được mô tả bằng các class, các giá trị cụ thể được biểu diễn dưới dạng các đối tượng, ở đây chỉ đề cập tới một số kiểu dữ liệu đặc trưng trong Ruby.  
+\subsection{Mảng và kiểu băm}
+Mảng và kiểu băm là các tập hợp được đánh chỉ số, dùng để lưu các đối tượng, và được truy cập bằng khóa. Với mảng khóa là các số nguyên, trong khi đó kiểu băm cho phép khóa thuộc bất kì kiểu đối tượng nào. Cả mảng và kiểu băm trong Ruby đều cho phép truy cập, sửa đổi, thêm, xóa các phần tử, đoạn code ~\ref{array} mô tả cách sử dụng mảng và kiểu băm.
+\begin{lstlisting}[
+language=Ruby,
+label=array,
+inputencoding=utf8,
+caption=Cách dùng method trong Ruby
+]
+# Using arrays
+# Create an array
+a = [1, 2, "ruby", "rails"]
+# Access an element
+print a[0] # => 1
+a[1] = 100
+a.delete_at(2)
+# Read all elements
+for e in a
+    puts e
+end
+
+# Using hashes
+# Create a hash
+hash = {1 => 'one', 'r' => 'Ruby', 
+       :symbol => 'symbols are immutable strings' }
+print hash[1] # => 'one'
+# Symbol object as a key of hash
+# :symbol is identical to 'symbol'
+print hash[:symbol] # => 'symbols are immutable strings'
+\end{lstlisting}
+
+Trong Ruby, Symbol là một class đặc biệt, được dùng để lưu trữ những string mà chỉ được tạo một lần, lưu trữ bên trong trình thông dịch của Ruby, gọi là table symbol một đối tượng thuộc class Symbol một khi được tạo, các lần tạo sau nếu đối tượng được tạo có cùng giá trị với đối tượng trước, thì đối tượng sau không được mới mà sử dụng lại đối tượng đã được tạo và lưu trữ trước đó.
+
+\section{Các logic chương trình}
+Ruby cung cấp một số cấu trúc đặc trưng để điều khiển logic của chương trình, ngoài các cấu trúc thông thường như lặp hay rẽ nhánh, trong Ruby còn có một số cấu trúc đặc trưng khác. 
+\subsection{Cấu trúc block và iterator}
+{\bf Block} là một cấu trúc nhóm một số đoạn code lại với nhau, block trong Ruby được dùng phổ biến nhất với các method, như một cách giúp mở rộng thêm các xử lý của một method, có thể truyền một block vào một method giống như một tham số. Đoạn code~\ref{block} chỉ ra cách dùng block với method.
+\begin{lstlisting}[
+language=Ruby,
+label=block,
+inputencoding=utf8,
+caption=Các dùng block với method trong Ruby
+]
+# A block
+{ puts "block" }
+# A block
+do
+    puts "another way to creates block"
+end
+
+# Method uses block
+def foo(&block)
+    block.call "block and method"
+end
+# Pass block to method
+foo do |x|
+    puts x
+end
+
+\end{lstlisting}
+
+{\bf Iterator} là cách để duyệt các phần tử trong một tập hợp như mảng hay kiểu băm trong ruby, đoạn code ~\ref{iterator} chỉ ra cách dùng iterator để duyệt mảng và kiểu băm.
+\begin{lstlisting}[
+language=Ruby,
+label=iterator,
+inputencoding=utf8,
+caption=Cách dùng iterator để duyệt mảng và kiểu băm
+]
+# Iterate an array
+a = [1, 2, "ruby", "rails"]
+a.each do |e|
+    puts e
+end
+
+# Iterate a hash
+h = {:r => "ruby", :j => "java", :p => "python"}
+h.each do |k, v|
+    puts k, v
+end
+
+\end{lstlisting}
+
+\section{Cấu trúc tổ chức}
+Các method trong Ruby có thể được nhóm vào trong các class hoặc các module.
+\subsection{Các class}
+Một class là một bản mô tả cho cách tạo các đối tượng, gồm các thuộc tính và các method.
+Method được chia thành 2 mức, mức đối tượng (instance method) và mức class (static method).
+Thuộc tính cũng được chia mức tương tự. Các method được phân định giới hạn truy cập ở 3 mức, public, protected, private. Mặc định nếu không khai báo gì thêm thì các method là public. Các giới hạn truy cập này không áp dụng cho các thuộc tính, các thuộc tính chỉ được truy cập thông quy các method, setter và getter. Đoạn code ~\ref{class} chỉ ra cách dùng class trong Ruby.
+\begin{lstlisting}[
+language=Ruby,
+label=class,
+inputencoding=utf8,
+caption=Cách dùng class trong Ruby
+]
+# Declare a class
+class Student
+    @@count = 0
+    # Default constructor's name
+    def initialize name, id
+        @name = name
+        @id = id
+    public
+        def set_name name
+          @name = name
+        end
+
+       def get_name
+         @name
+       end
+     private
+       def private_method
+         puts "private method"
+       end
+end
+
+# Using class
+s = Student.new "Ruby", "r"
+s.get_name # => "Ruby"
+s.private_method # => Error raised
+
+\end{lstlisting}
+\subsection{Các module}
+Module trong Ruby được dùng với 2 mục đích, sử dụng để quản lý mã nguồn như các namespace, và dùng để thêm các method vào trong một class một cách linh hoạt. Module nhóm các class, các method, các biến vào bên trong. Đoạn code~\ref{module} mô tả cách dùng của module.
+\begin{lstlisting}[
+language=Ruby,
+label=module,
+inputencoding=utf8,
+caption=Cách dùng module trong Ruby
+]
+# Declare a module
+module IT
+class Programmer
+    def program
+      puts "I can program"
+    end
+end
+
+class Hacker < IT::Programmer
+   def hack
+     puts "I can hack"  
+	end
+end
+
+hacker = Hacker.new
+hacker.program # => "I can program"
+hacker.hacker # => "I can hack"
+\end{lstlisting}
